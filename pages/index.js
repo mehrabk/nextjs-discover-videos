@@ -1,6 +1,6 @@
 import Head from "next/head"
-import Image from "next/image"
 import styles from "../styles/Home.module.css"
+import Banner from "../components/banner/banner"
 
 export default function Home() {
   return (
@@ -11,9 +11,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Netflix</h1>
-      </main>
+      <Banner title="Game Of Throne" subTitle="amazing move" imgUrl="/static/images/got.jpg" />
+      {/* <NavBar /> */}
+      {/* <Card /> */}
     </div>
   )
 }
