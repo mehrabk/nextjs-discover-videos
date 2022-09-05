@@ -19,7 +19,7 @@ const Banner = props => {
 
           <div className={styles.playBtnWrapper}>
             <button className={styles.btnWithIcon} onClick={handleOnPlay}>
-              <Image src="/static/svg/play-arrow.svg" alt="play icon" width="32px" height="32px" />
+              <Image src="/static/svg/play_arrow.svg" alt="play icon" width="32px" height="32px" />
               <span className={styles.playText}>Play</span>
             </button>
           </div>
