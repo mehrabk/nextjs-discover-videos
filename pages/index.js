@@ -2,9 +2,22 @@ import Head from "next/head"
 import styles from "../styles/Home.module.css"
 import Banner from "../components/banner/banner"
 import Navbar from "../components/nav/navbar"
-import Card from "../components/card/card"
+import SectionCards from "../components/card/section-cards"
+import { useEffect, useState } from "react"
+import { getVideos } from "../lib/videos"
 
-export default function Home() {
+export async function getServerSideProps() {
+  const allVideos = await getVideos()
+  console.log(allVideos)
+  return { props: { allVideos } }
+}
+
+export default function Home(porps) {
+  const { allVideos } = porps
+  const [videos, setVideos] = useState(allVideos)
+
+  console.log(videos)
+  useEffect(() => {}, [])
   return (
     <div className={styles.container}>
       <Head>
@@ -15,9 +28,10 @@ export default function Home() {
 
       <Navbar username="mehrab.kor@gmail.com" />
       <Banner title="Game Of Throne" subTitle="amazing move" imgUrl="/static/images/got.jpg" />
-      <Card imgUrl="/static/images/got.jpg" size="large" />
-      <Card size="medium" />
-      <Card imgUrl="/static/images/got.jpg" size="small" />
+
+      <div className={styles.sectionWrapper}>
+        <SectionCards title="Game Of Throne" videos={videos} size="large" />
+      </div>
     </div>
   )
 }

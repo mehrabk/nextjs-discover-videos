@@ -1,14 +1,15 @@
 import React, { useState } from "react"
 import Image from "next/image"
 import styles from "./card.module.css"
-
+import { motion } from "framer-motion"
+import cls from "classnames"
 import { FallbackImage } from "../../utils/constants"
 
 function Card(props) {
-  const { imgUrl = FallbackImage, size = "medium" } = props
+  const { imgUrl = FallbackImage, size = "medium", id = 1 } = props
   const [imageSrc, setImageSrc] = useState(imgUrl)
 
-  console.log(styles.lgItem)
+  const scale = id === 0 ? { scaleY: 1.05 } : { scale: 1.05 }
 
   const classMap = {
     large: styles.lgItem,
@@ -17,7 +18,12 @@ function Card(props) {
   }
   return (
     <div className={styles.container}>
-      <div className={classMap[size]}>
+      <motion.div
+        whileHover={{
+          ...scale
+        }}
+        className={cls(styles.imgMotionWrapper, classMap[size])}
+      >
         <Image
           src={imageSrc}
           onError={e => setImageSrc(FallbackImage)}
@@ -25,7 +31,7 @@ function Card(props) {
           layout="fill"
           className={styles.cardImg}
         />
-      </div>
+      </motion.div>
     </div>
   )
 }
