@@ -26,7 +26,7 @@ export default function Home(porps) {
       </Head>
 
       <main className={styles.main}>
-        <Navbar username="mehrab.kor@gmail.com" />
+        <Navbar />
         <Banner title="Game Of Throne" subTitle="amazing move" imgUrl="/static/images/got.jpg" />
 
         <div className={styles.sectionWrapper}>
