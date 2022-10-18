@@ -5,8 +5,10 @@ import { magic } from "../lib/magic-client"
 import "../styles/globals.css"
 
 function MyApp({ Component, pageProps }) {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+
+  console.log("App Running")
 
   // subscribing router & solve flicker when route
   useEffect(() => {
@@ -24,6 +26,7 @@ function MyApp({ Component, pageProps }) {
 
   const isLoggedIn = async () => {
     const result = await magic.user.isLoggedIn()
+    console.log({ result })
     if (result) {
       router.push("/")
     } else {

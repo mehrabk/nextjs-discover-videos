@@ -17,7 +17,7 @@ function Card(props) {
     small: styles.smItem
   }
   return (
-    <div className={styles.container}>
+    <div  className={styles.container}>
       <motion.div
         whileHover={{
           ...scale

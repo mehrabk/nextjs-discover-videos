@@ -27,7 +27,12 @@ export default function Home(porps) {
 
       <main className={styles.main}>
         <Navbar />
-        <Banner title="Game Of Throne" subTitle="amazing move" imgUrl="/static/images/got.jpg" />
+        <Banner
+          title="Game Of Throne"
+          subTitle="amazing move"
+          imgUrl="/static/images/got.jpg"
+          videoId="KPLWWIOCOOQ"
+        />
 
         <div className={styles.sectionWrapper}>
           <SectionCards title="Game Of Throne" videos={gotVideos} size="large" />
